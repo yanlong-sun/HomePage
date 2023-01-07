@@ -24,9 +24,9 @@ STATIC_DIR = os.path.join(BASE_DIR, 'blog/static')
 SECRET_KEY = 'django-insecure-v&2nhx4=2qic)rehbz741of1%*n9spf5pw_1p6_48w_civc%#$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1:8000', '54.149.214.152']
+ALLOWED_HOSTS = ['127.0.0.1', '54.149.214.152', 'yanlong-sun.com']
 
 
 # Application definition
@@ -117,7 +117,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'blog/static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'blog/static')
 
 
