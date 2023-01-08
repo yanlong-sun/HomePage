@@ -1,0 +1,43 @@
+{%extends 'basic/base.html'%}
+{%block title%}孙彦龙的主页{%endblock%}
+
+{%block translate%}
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+  <a class="btn btn-outline-primary" for="btnradio1" href="{%url 'index'%}">En</a>
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked>
+  <a class="btn btn-outline-primary" for="btnradio1" href="{%url 'basic:cn'%}">中</a>
+{%endblock%}
+
+{%block home%}
+<h1>你好!</h1>
+{%endblock%}
+
+{%block education%}
+<h3>EDUCATION</h3>
+<ul>
+  <li>University of Southern California</li>
+  <li>XIDIAN University</li>
+</ul>
+{%endblock%}
+
+{%block workexperience%}
+<h3>WORK EXPERIENCE</h3>
+<ul>
+  <li>Tusimple</li>
+  <li>USC Department of Electrical and Computer Engineering</li>
+</ul>
+{%endblock%}
+
+
+{%block projectexperience%}
+<h3>PROJECT EXPERIENCE</h3>
+<ul>
+  <li>Patient Treatment Clasification</li>
+  <li>RGBD Salient Object Detection</li>
+</ul>
+{%endblock%}
+
+{%block technicalskills%}
+<h3>TECHNICAL SKILLS</h3>
+<p>pyhton, java, MATLAB...</p>
+{%endblock%}

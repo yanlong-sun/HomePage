@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Yanlong:Experience
+{% endblock title %}
+
+
+{%block info%}
+<div class='jumbotron'>
+    <table class="table table-hover postcontent">
+        <thead>
+            <tr colspan="3" class="postcontent">
+                <td colspan="3">Education</td>
+            </tr>
+        </thead>
+    
+        <tr>
+            <td>
+                <img src="{%static 'basic/usc.png'%}" style='width:180px;height:100px'>
+            </td>
+
+            <td style="width:600px">
+                <h2>University of Southern California</h2>
+                <h5>Master of Science in Electrical and Computer Engineering</h5>
+            </td>
+
+            <td style="vertical-align: middle; text-align:right">
+                <h4>Jan 2020 - Dec 2021</h4>
+                <h5>Los Angeles, CA</h5>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center">
+                <img src="{%static 'basic/xidian.png'%}" style='width:100px;height:100px';>
+            </td>
+
+            <td>
+                <h2>XIDIAN University</h2>
+                <h5>Bachelor of Science in Electronic Engineering</h5>
+            </td>
+
+            <td  style="vertical-align: middle; text-align:right">
+                <h4>Aug 2015 - Jun 2019</h4>
+                <h5>Xi'an, China</h5>
+            </td>
+        </tr>
+    </table>
+
+
+    
+</div>
+
+<div class="jumbotron">
+    <table class="table table-hover postcontent">
+        <thead>
+            <tr colspan="3" class="postcontent">
+                <td colspan="3">Work Experience</td>
+            </tr>
+        </thead>
+        <tr rowspan="2">
+            <td style="vertical-align:middle">
+                <img src="{%static 'basic/tusimple.png'%}" style='width:180px;height:60px'>
+            </td>
+            
+            <td style="width:600px">
+                <h2>Tusimple, Inc</h2>
+                <h4>Software Quality Assurance Engineer</h4>
+            </td>
+
+            <td  style="vertical-align: middle; text-align:right">
+                <h4>Jan 2022 - Present</h4>
+                <h5>San Diego, CA</h5>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="2" style="text-align:left">
+            <ul>
+                <li><p>Designed and implemented comprehensive testing plans and created over 1,000 simulation scenarios for self-driving truck algorithms in hundreds of driving conditions to ensure their reliability and safety</p></li>
+                <li><p>Identified, troubleshooted and reported over 30 issues in algorithms through the design and creation of test data</p></li>
+                <li><p>Adjusted over 1,000 scenarios as part of the maintenance and management of a library of thousands of scenarios</p></li>
+                <li><p>Improved the efficiency of the scenario building process by reporting over 20 bugs and over 5 feature requests to the simulation platform team</p></li>
+                <li><p>Employed data analysis techniques in Python to ensure adequate coverage of different driving conditions</p></li>
+            </ul>
+
+            </td>
+        </tr>
+
+        <tr rowspan="2">
+            <td style="vertical-align:center">
+                <img src="{%static 'basic/usc.png'%}" style='width:180px;height:100px'>
+            </td>
+
+            <td style="width:600px">
+                <h2>Department of ECE</h2>
+                <h4>Research Assistant</h4>
+            </td>
+            <td style="vertical-align: middle; text-align:right">
+                <h4>Aug 2020 - Dec 2021</h4>
+                <h5>Los Angeles, CA</h5>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td colspan="2" style="width: 200px;height: 40px; text-align:left">
+            <ul>
+                <li><p>Designed and implemented a novel deep learning model for MRI skull stripping, a process for automatically segmenting the brain from surrounding tissues, achieved competitive performance, 97% Dice Coefficient on the benchmark dataset</p></li>
+                <li><p>Released the <a href="https://pypi.org/project/bse-ml/">'bse-ml'</a> python package with extensive documentation, making it easy for users to quickly get started with skull-stripping</p></li>
+                <li><p>Implemented a wide range of classic and state-of-the-art deep learning models for medical image processing tasks such as image enhancement, segmentation, and classification using Python, MATLAB, Tensorflow and Pytorch, and evaluated the models using metrics such as dice coefficient, accuracy, and AUC on datasets of medical image</p></li>
+            </ul>
+
+            </td>
+        </tr>
+    </table>
+</div>
+{%endblock%}
+
+

@@ -1,4 +1,9 @@
 {% extends 'blog/base.html' %}
+
+{% block title %}
+Yanlong:Blog
+{% endblock title %}
+
 {% block content %}
     <h1 class="posttitle loader">{{post.title}}</h1>
     {% if post.published_date %}

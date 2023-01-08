@@ -9,8 +9,14 @@ from django.views.generic import (TemplateView, ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
 # Create your views here.
 
-class AboutView(TemplateView):
-    template_name = 'about.html'
+class HomePage(TemplateView):
+    template_name = 'home.html'
+
+class Experience(TemplateView):
+    template_name = 'experience.html'
+
+class Projects(TemplateView):
+    template_name = 'projects.html'
 
 class PostListView(ListView):
     model = Post

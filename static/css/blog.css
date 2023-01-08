@@ -17,6 +17,12 @@
     text-align:center;
 }
 
+td img{
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
 .posttitle{
     font-family: 'Russo One', sans-serif;
     font-size: 3em;
@@ -28,20 +34,25 @@
     font-size: 1.5em;
 }
 
+
 .btn-comment{
     position:absolute;
     right:0px;
 }
 
+.table {
+    width: auto !important;
+}
 
-/* COLOR CHANGER BELOW */
+
+/* COLOR CHANGER BELOW
 .loader {
     filter:hue-rotate(0deg);
     color:linear-gradient(45deg,#0f8,#08f);
     animation:hue 10000ms infinite linear;
-}
+} */
   
-@keyframes spinify {
+/* @keyframes spinify {
 0% {
     transform: translate(0px,0px);
     
@@ -73,4 +84,4 @@
 0%{filter: hue-rotate(0deg);}
 100%{filter:hue-rotate(360deg);}
 
-}
+} */
