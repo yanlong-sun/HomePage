@@ -7,12 +7,12 @@ Yanlong:Blog
 {% block content %}
 <div class="centerstage">
     {% for post in post_list %}
-        <div class="post">
-            <h1><a href="{%url 'post_detail' pk=post.pk%}">{{post.title}}</a></h1>
+        <div class="post jumbotron">
+            <h2 class='posttitle' style="text-align:left"><a href="{%url 'post_detail' pk=post.pk%}">{{post.title}}</a></h2>
             <div class='date'>
-                <p>Published on: {{post.published_date|date:"m/d/y"}}</p>
+                <p class='postcontent'>Published on: {{post.published_date|date:"m/d/y"}}</p>
             </div>
-            <a href="{%url "post_detail" pk=post.pk%}">Comments:{{post.approve_comments.count}}</a>
+            <a class='postcontent' href="{%url "post_detail" pk=post.pk%}">Comments ({{post.approve_comments.count}})</a>
         </div>
     {% endfor %}
 </div>
