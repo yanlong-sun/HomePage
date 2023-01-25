@@ -60,5 +60,5 @@ jobs:
       - name: Deploy to Elastic Beanstalk
         run: |
           pip install --upgrade awsebcli
-          eb init -r us-west-2
+          eb init -r us-west-2 myhomepage
           eb deploy Myhomepage-env
