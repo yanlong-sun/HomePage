@@ -49,12 +49,12 @@ jobs:
         run: docker-compose build
       
       - name: Tag the image
-        run: docker tag blog_project-web:latest blog_project/blog_project-web:latest
+        run: docker tag blog_project_web:latest blog_project/blog_project_web:latest
 
       - name: Push the image to ECR
         run: |
           $(aws ecr get-login --no-include-email)
-          docker push blog_project/blog_project-web:latest
+          docker push blog_project/blog_project_web:latest
 
       - name: Deploy to Elastic Beanstalk
         run: |
