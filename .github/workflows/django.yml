@@ -31,7 +31,8 @@ jobs:
 
   deploy:
     on:
-      branch: main
+      push: 
+        branch: [main]
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to EB
