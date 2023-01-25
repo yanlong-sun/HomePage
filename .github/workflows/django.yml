@@ -6,15 +6,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: build the docker
+      - name: checkout code
+        uses: actions/checkout@v2
         with: 
           workdir: /code
+          
+      - name: build the docker
         run: | 
           docker-compose build
           
   test:
     runs-on: ubuntu-lastest
     steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+        with: 
+          workdir: /code
+
       - name: Run tests inside the docker container
         with: 
           workdir: /code
