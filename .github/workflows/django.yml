@@ -1,23 +1,19 @@
 name: Django CI
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: push
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: build the docker
-        run: |
-          docker-compose -f ./docker-compose.yml build
+        run: | 
+          docker-compose build
           
   test:
     runs-on: ubuntu-lastest
     steps:
       - name: Run tests inside the docker container
         run: |
-          docker-compose -f ./docker-compose.yml run --rm app sh -c "python manage.py test"
+          docker-compose run --rm app sh -c "python manage.py test"
 
