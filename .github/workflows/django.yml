@@ -27,7 +27,8 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    needs: test
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: checkout code
         uses: actions/checkout@v2
