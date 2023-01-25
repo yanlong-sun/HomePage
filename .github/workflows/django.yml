@@ -1,10 +1,6 @@
 name: Django CI Deployment
 
-on: 
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push, pull_request]
 
 jobs:
   # build:
@@ -46,9 +42,7 @@ jobs:
 
       - name: Install AWS Elastic Beanstalk CLI
         run: |
-          apt-get update
-          apt-get install -y python-pip
-          pip install awsebcli
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv
 
       - name: Build the Docker image
         run: docker-compose build
