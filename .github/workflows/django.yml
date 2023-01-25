@@ -57,8 +57,10 @@ jobs:
           docker login -u ${{ secrets.DOCKER_ID }} -p ${{ secrets.DOCKER_KEY }}
           docker push yanlongsun/web:latest
 
-      - name: Deploy to Elastic Beanstalk
+      - name: Initialize Elastic Beanstalk
         run: |
           pip install --upgrade awsebcli
           eb init -r us-west-2 myhomepage
-          eb deploy Myhomepage-env
+          
+      - name: Deploy to Elastic Beanstalk
+        run: eb deploy myhomepage-env
