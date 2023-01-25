@@ -29,16 +29,16 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-      steps:
-        - name: Deploy to EB
-          provider: elesticbeanstalk
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: myhomepage
-          environment_name: Myhomepage-env
-          region: us-west-2
-          bucket_name: elasticbeanstalk-us-west-2-213972045222
-          bucket_path: myhomepage
-          on: 
-            branch: main
+    steps:
+      - name: Deploy to EB
+        provider: elesticbeanstalk
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: myhomepage
+        environment_name: Myhomepage-env
+        region: us-west-2
+        bucket_name: elasticbeanstalk-us-west-2-213972045222
+        bucket_path: myhomepage
+        on: 
+          branch: main
 
