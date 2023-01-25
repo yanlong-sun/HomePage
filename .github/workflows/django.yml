@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v2
         with: 
           workdir: /code
-          
+
       - name: build the docker
         run: | 
           docker-compose build
@@ -24,8 +24,6 @@ jobs:
           workdir: /code
 
       - name: Run tests inside the docker container
-        with: 
-          workdir: /code
         run: |
           docker-compose run --rm app sh -c "python manage.py test"
 
