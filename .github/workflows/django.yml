@@ -1,21 +1,22 @@
-name: Django CI
+name: Django CI Deployment
 
-on: push
+on: 
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v2
-        with: 
-          workdir: /code
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: checkout code
+  #       uses: actions/checkout@v2
+  #       with: 
+  #         workdir: /code
 
-      - name: build the docker
-        run: docker-compose build
-
-      - name: generate deployment package
-        run: zip -r deploy.zip *
+  #     - name: build the docker
+  #       run: docker-compose build
       
   test:
     runs-on: ubuntu-latest
@@ -26,21 +27,40 @@ jobs:
           workdir: /code
 
       - name: Run tests inside the docker container
-        run: |
-          docker-compose run --rm web sh -c "python manage.py test"
+        run: docker-compose run --rm web sh -c "python manage.py test"
 
   deploy:
-    on:
-      push: 
-        branch: [main]
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to EB
-        uses: einaregilsson/beanstalk-deploy@v14
+      - name: checkout code
+        uses: actions/checkout@v2
+        with: 
+          workdir: /code
+      
+      - name: Setup AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: myhomepage
-          environment_name: Myhomepage-env
-          region: us-west-2
-          deployment_package: deploy.zip
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+
+      - name: Install AWS Elastic Beanstalk CLI
+        run: |
+          apt-get update
+          apt-get install -y python-pip
+          pip install awsebcli
+
+      - name: Build the Docker image
+        run: docker-compose build
+      
+      - name: Tag the image
+        run: docker tag web:latest blog_project/web:latest
+
+      - name: Push the image to ECR
+        run: |
+          $(aws ecr get-login --no-include-email)
+          docker push blog_project/web:latest
+
+      - name: Deploy to Elastic Beanstalk
+        run: |
+          eb deploy Myhomepage-env
