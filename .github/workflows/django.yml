@@ -59,4 +59,5 @@ jobs:
 
       - name: Deploy to Elastic Beanstalk
         run: |
-          sudo eb deploy Myhomepage-env
+          pip install --upgrade awsebcli
+          eb deploy Myhomepage-env
