@@ -43,7 +43,7 @@ jobs:
 
       - name: Install AWS Elastic Beanstalk CLI
         run: |
-          pip install awsebcli
+          pip install --upgrade awscli
 
       - name: Build the Docker image
         run: docker-compose build
