@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Yanlong's HomePage</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+
+    {% comment %} Custom CSS {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-DUOHff2QKuxxIsdX2+BgZgy8oZiGhHgD/WlucDMbZeWgKv1czrHz5R5X5bz5UZp6J14KJKUyf6dLrc6zvo8+A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static 'css/homepage.css'%}" />
+    {% comment %} Fonts {% endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      {% comment %} NAVBAR {% endcomment %}
+      <nav class="nav">
+        <ul class="nav__links postcontent">
+          <li class="nav__item">
+            <a class="nav__link" href="#home">Yanlong.Sun</a>
+          </li>
+        </ul>
+        {% comment %} blog login {% endcomment %}
+        <ul class="nav__links postcontent">
+          <li class="nav__item">
+            <a class="nav__link" href="#Experience">Experience</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#Projects">Projects</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#Blogs">My Blog</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#Contact">Contact</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav__item">
+            <a class="nav__link" href="{% url 'post_new' %}">New Post</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="{% url 'post_draft_list' %}">Drafts</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="{% url 'logout' %}">Log Out</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="">Welcome, {{user.username}}</a>
+          </li>
+          {% else %}
+          <li class="nav__item">
+            <a class="nav__link" href="{%url 'login'%}"> Log In </a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      {% comment %} Home {% endcomment %}
+      <div class="header__title" id="home">
+        <h4>Hello, I'm Yanlong</h4>
+      </div>
+    </header>
+    {% comment %} Experience {% endcomment %}
+    <section class="section" id="Experience">
+      <div class="section__title">
+        <h2 class="section__description">Experiences</h2>
+      </div>
+      {% comment %} tusimple {% endcomment %}
+      <div class="experiences">
+        <div class="features__date">Jan 2022 - Feb 2023</div>
+        <div class="features__feature">
+          <h5 class="features__header">Software Quality Assurance Engineer</h5>
+          <h5 class="features__header2">TuSimple</h5>
+          <p>
+            I conducted black box testing on the self-driving truck algorithms
+            by designing real road scenarios that simulated various driving
+            conditions and situations
+          </p>
+        </div>
+      </div>
+
+      {% comment %} USC {% endcomment %}
+      <div class="experiences">
+        <div class="features__date">Aug 2020 - Dec 2021</div>
+        <div class="features__feature">
+          <h5 class="features__header">Computer Vision Research Assistant</h5>
+          <h6 class="features__header2">Biomedical Imaging Group at USC</h6>
+          <p>
+            I developed a high-performing model for MRI skull stripping that
+            achieved a 97% Dice Coefficient on the benchmark dataset
+          </p>
+        </div>
+      </div>
+      {% comment %} USC {% endcomment %}
+      <div class="experiences jumbotron">
+        <div class="features__date">Jan 2020 - Dec 2021</div>
+        <div class="features__feature">
+          <h5 class="features__header">
+            Master's Degree in Electrical and Computer Engineering
+          </h5>
+          <h6 class="features__header2">University of Southern California</h6>
+        </div>
+      </div>
+      {% comment %} XIDIAN {% endcomment %}
+      <div class="experiences">
+        <div class="features__date">Dec 2018 - Oct 2019</div>
+        <div class="features__feature">
+          <h5 class="features__header">Computer Vision Research Assistant</h5>
+          <h6 class="features__header2">Video & Image Processing System Lab</h6>
+          <p>
+            I designed an efficient 2D deep neural network model for RGBD
+            salient object detection
+          </p>
+        </div>
+      </div>
+      {% comment %} XIDIAN {% endcomment %}
+      <div class="experiences jumbotron">
+        <div class="features__date">Aug 2015 - Jun 2019</div>
+        <div class="features__feature">
+          <h5 class="features__header">
+            Bachlor's Degree in Electronic Engineering
+          </h5>
+          <h6 class="features__header2">XIDIAN University</h6>
+        </div>
+      </div>
+    </section>
+    {% comment %} Projects {% endcomment %}
+    <section class="section" id="Projects">
+      <div class="section__title">
+        <h2 class="section__description">Projects</h2>
+      </div>
+
+      <div class="operations">
+        <div class="operations__tab-container">
+          <button
+            class="btn operations__tab operations__tab--1 operations__tab--active"
+            data-tab="1"
+          >
+            IMDb Restful API
+          </button>
+          <button class="btn operations__tab operations__tab--2" data-tab="2">
+            Personal Blog
+          </button>
+        </div>
+        <div
+          class="operations__content operations__content--1 operations__content--active"
+        >
+          <div class="operations__icon operations__icon--1"></div>
+          <ul class="operations__header">
+            <li>
+              Built a RESTful API using Django Rest Framework that retrieves
+              data from the IMDb database and allows users to search for and
+              filter titles by various criteria, including title type, genre,
+              and release year
+            </li>
+            <li>
+              Implemented pagination and caching techniques to improve the
+              performance and scalability of the API
+            </li>
+            <li>
+              Conducted comprehensive testing of the API using Postman to ensure
+              that it is fully functional
+            </li>
+          </ul>
+        </div>
+
+        <div class="operations__content operations__content--2">
+          <div class="operations__icon operations__icon--2">
+            <svg>
+              <use xlink:href="img/icons.svg#icon-home"></use>
+            </svg>
+          </div>
+          <h5 class="operations__header">
+            Buy a home or make your dreams come true, with instant loans.
+          </h5>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
+        </div>
+      </div>
+    </section>
+    {% comment %} My Blog {% endcomment %}
+    <section class="section" id="Blogs">
+        <div class="section__title section__title--testimonials">
+          <h2 class="section__description">My Blogs</h2>
+        </div>
+
+        <div class="slider">
+          <div class="slide">
+            <div class="testimonial">
+              <h5 class="testimonial__header"></h5>
+              <blockquote class="testimonial__text">
+              </blockquote>
+            </div>
+          </div>
+
+
+
+          <button class="slider__btn slider__btn--left">&larr;</button>
+          <button class="slider__btn slider__btn--right">&rarr;</button>
+          <div class="dots"></div>
+        </div>
+      </div>
+    </section>
+    {% comment %} Contact {% endcomment %}
+    <section class="section" id="Contact">
+      <div class="section__title">
+        <h2 class="section__description">Contact</h2>
+      </div>
+      <div>
+        <p class="footer__copyright">sunyanlong712@gmail.com</p>
+        <p class="footer__copyright">571-315-3972</p>
+        <p class="footer__copyright">
+          <a href="https://github.com/yanlong-sun">Github</a>
+        </p>
+        <p class="footer__copyright">
+          <a href="https://www.linkedin.com/in/yanlong-sun/">Linkedin</a>
+        </p>
+      </div>
+    </section>
+    <footer class="footer">
+      <p class="footer__copyright">By Yanlong Sun</p>
+    </footer>
+  </body>
+</html>

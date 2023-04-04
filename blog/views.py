@@ -11,7 +11,7 @@ from django.views.generic import (TemplateView, ListView, DetailView,
 
 
 class HomePage(TemplateView):
-    template_name = 'homepage/home.html'
+    template_name = 'homepage/mainpage.html'
 
 
 class Experience(TemplateView):
